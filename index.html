@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang= "ens-us">
+<head>
+    <meta charset="utf-8">
+    <title>Psychic-Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="script" href="assets/javascript/game.js">
+</head>
+
+<body>
+
+    <div id="#guessgame">
+        <h1>Guess what letter I'm thinking of?</h1>
+        <hr>
+
+        <p>Wins:</p>
+        <p>Losses:</p>
+        <p>Guesses Left:</p>
+        <p>Your Guesses So Far:</p>
+    </div>
+
+    <script type="text/javascript">
+
+    // Compter Guesses
+        var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+
+    // These are the variables
+        var wins = 0;
+        var losses = 0;
+        var guessesleft = 9;
+        var yourguessessofar = [];
+        
+    // These are the variables
+        document.onkeyup = function() {
+            var userGuess = String.fromCharCode(event.keycode).
+                    toLowerCase();
+
+            console.log(userguess);
+                
+                var computerGuess = options [Math.floor(Math.random() * options.length)];
+
+                console.log(computerGuess);
+ 
+            if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+            && (computerGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"))
+            
+            {wins++;}
+
+            else if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+            && (computerGuess === "z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"))
+
+            {losses++;}
+
+
+
+
+
+
+            var html = 
+                "<p>You chose: " + userGuess + "</p>" +
+                "<p>The computer chose: " + userGuess + "</p>" +
+                "<p>Wins: " + wins + "</p>" +
+                "<p>Loses: " + losses + "</p>" +
+                "<p>Guesses Left: " + guessesleft + "</p>" +
+                "<p>Your Guesses So Far: " + yourguessessofar + "</p>" +
+
+            document.querySelector("#guessgame").innerHTML = html;
+
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>
