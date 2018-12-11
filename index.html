@@ -22,35 +22,65 @@
     <script type="text/javascript">
 
     // Compter Guesses
-        var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-
+        var computerGuess = "A";
     // These are the variables
         var wins = 0;
         var losses = 0;
         var guessesleft = 9;
         var yourguessessofar = [];
         
-    // These are the variables
+    // Listen to key upevent
         document.onkeyup = function() {
-            var userGuess = String.fromCharCode(event.keycode).
-                    toLowerCase();
+            // Make a variable and store user guess
+            var userGuess = String.fromCharCode(event.keycode).toLowerCase();
 
-            console.log(userguess);
+    // Compare userGuess and computerGuess
+            if (userGuess === computerGuess){
+
+                // Increase wins by 1
+                wins++;
+            }
+            else {
+                // Increase losses by 1
+                losses++;
+            }
+            // Decrease to nuber of guessleft by 1
+            guessleft--;
+
+            // Storing the letter guessed in the array
+            yourguessessofar.push (userGuess);
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // console.log(userguess);
                 
-                var computerGuess = options [Math.floor(Math.random() * options.length)];
+            //     var computerGuess = options [Math.floor(Math.random() * options.length)];
 
-                console.log(computerGuess);
+            //     console.log(computerGuess);
  
-            if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
-            && (computerGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"))
+            // if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+            // && (computerGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"))
             
-            {wins++;}
+            // {wins++;}
 
-            else if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
-            && (computerGuess === "z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"))
+            // else if ((userGuess === "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+            // && (computerGuess === "z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"))
 
-            {losses++;}
+            // {losses++;}
 
 
 
@@ -65,7 +95,7 @@
                 "<p>Guesses Left: " + guessesleft + "</p>" +
                 "<p>Your Guesses So Far: " + yourguessessofar + "</p>" +
 
-            document.querySelector("#guessgame").innerHTML = html;
+            document.querySelector("#guessgame").innerHTML(html);
 
 
         }
