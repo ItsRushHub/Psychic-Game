@@ -8,7 +8,7 @@
 
 <body>
 
-    <div id="#guessgame">
+    <div id="guessgame">
         <p>Guess what letter I'm thinking of?</p>
         <hr>
         <p>Wins:</p>
@@ -26,20 +26,30 @@
         var wins = 0;
         var losses = 0;
         var guessesleft = 9;
-        var yourguessessofar = [];       
+        var yourguessessofar = 0;       
     
-    // Listen to key upevent
-    document.onkeyup = function() {
-    var userGuess = event.key;
-
-    // Make a variable and store user guess
-    var userGuess = String.fromCharCode(event.keycode).toLowerCase();
-
-    // The Computer guess
-    var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 
-    // Compare userGuess and computerGuess
+
+
+
+
+
+    
+        // Listen to key upevent
+        document.onkeyup = function(event) {
+        var userGuess = event.key;
+        console.log (userGuess);
+
+        // Make a variable and store user guess
+        var userGuess = String.fromCharCode(event.keycode).toLowerCase();
+        console.log (userGuess);
+
+        // The Computer guess
+        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+        console.log (computerGuess);
+
+        // Compare userGuess and computerGuess
             if (userGuess === computerGuess){
 
                 alert("You are correct")
@@ -58,30 +68,34 @@
             guessesleft--;
             }
            
-
-            // Storing the letter guessed in the array
-            yourguessessofar.push ();
-
-            
+        // Storing the letter guessed in the array
+        // MAKE THIS AN ARRAY
+        function myFunction() {
+            yourguessessofar.push ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+        document.getElementById().innerHTML = alphabet;
+        }
+        
+                
 
         
 
-                
+    
 
 
 
 
 
 
-            var html = "<p>Guess what letter I'm thinking of?</p> +"
-                "<p>You chose: " + userGuess + "</p>" + userGuess;
-                "<p>The computer chose: " + computerGuess + "</p>" + computerGuess;
-                "<p>Wins: " + wins + "</p>" + wins;
-                "<p>Losses: " + losses + "</p>" + losses;
-                "<p>Guesses Left: " + guessesleft + "</p>" + guessesleft;
-                "<p>Your Guesses So Far: " + yourguessessofar + "</p>" + yourguessessofar;
+        var html = "<p>Guess what letter I'm thinking of?</p>" +
+            "<p>You chose: " + userGuess + "</p>" + userGuess +
+            "<p>The computer chose: " + computerGuess + "</p>" +
+            "<p>Wins: " + wins + "</p>" +
+            "<p>Losses: " + losses + "</p>" +
+            "<p>Guesses Left: " + guessesleft + "</p>" +
+            "<p>Your Guesses So Far: " + yourguessessofar + "</p>";
+            console.log(html)
 
-            document.querySelector("#guessgame").innerHTML = html;
+        document.querySelector("#guessgame").innerHTML = html;
     }
 
     </script>
