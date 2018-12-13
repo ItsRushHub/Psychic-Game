@@ -26,15 +26,7 @@
         var wins = 0;
         var losses = 0;
         var guessesleft = 9;
-        var yourguessessofar = 0;       
-    
-
-
-
-
-
-
-
+        var yourguessessofar = [];       
     
         // Listen to key upevent
         document.onkeyup = function(event) {
@@ -50,45 +42,45 @@
         console.log (computerGuess);
 
         // Compare userGuess and computerGuess
-            if (userGuess === computerGuess){
-
+            if (userGuess === computerGuess) {
                 alert("You are correct")
 
                 // Increase wins by 1
                 wins++;
+
+        // Storing the letter guessed in the array
+                var yourguessessofar = [];
             }
 
             else {
                 // Increase losses by 1
                 losses++;
+        // Storing the letter guessed in the array
+            var yourguessessofar = [];
             }
 
-            if (userGuess !== computerGuess){
+            if (userGuess !== computerGuess) {
             // Decrease to number of guessleft by 1
             guessesleft--;
+        // Storing the letter guessed in the array
+        var yourguessessofar = [];
             }
            
+            if (guessesleft <= 0) {
+                alert("You did not win this game. Better luck next time!")
+            }
+
+
+
         // Storing the letter guessed in the array
         // MAKE THIS AN ARRAY
-        function myFunction() {
-            yourguessessofar.push ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-        document.getElementById().innerHTML = alphabet;
-        }
-        
-                
 
         
-
+        yourguessessofar.push ();
+        reset.guessgame();
     
 
-
-
-
-
-
-        var html = "<p>Guess what letter I'm thinking of?</p>" +
-            "<p>You chose: " + userGuess + "</p>" + userGuess +
-            "<p>The computer chose: " + computerGuess + "</p>" +
+            var html = "<p>Guess what letter I'm thinking of?</p>" +
             "<p>Wins: " + wins + "</p>" +
             "<p>Losses: " + losses + "</p>" +
             "<p>Guesses Left: " + guessesleft + "</p>" +
