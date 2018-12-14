@@ -26,8 +26,8 @@
         // These are the variables
         var wins = 0;
         var losses = 0;
-        var guessesleft = 9;
-        var yourguessessofar = [];
+        var guessesLeft = 9;
+        var yourGuessesSoFar = [];
 
         // Listen to key upevent
         document.onkeyup = function (event) {
@@ -48,8 +48,8 @@
             if (userGuess === computerGuess) {
                 // Increase wins by 1
                 wins++;
-                alert("You are correct")
-                resetGame();
+                alert("You are correct");
+                resetGame(guessgame);
                 }
 
                 else {
@@ -59,24 +59,22 @@
 
                 if (userGuess !== computerGuess) {
                     // Decrease to number of guessleft by 1
-                    guessesleft--;
+                    guessesLeft--;
                 }
 
-                if (guessesleft <= 0) {
+                if (guessesLeft <= 0) {
                     alert("You did not win this game. Better luck next time!");
-                    resetGame();
+                    resetGame(guessgame);
                 }
 
                 var html = "<p>Guess what letter I'm thinking of?</p>" +
                     "<p>Wins: " + wins + "</p>" +
                     "<p>Losses: " + losses + "</p>" +
-                    "<p>Guesses Left: " + guessesleft + "</p>" +
-                    "<p>Your guesses so far: " + yourguessessofar + "</p>" +;
-                console.log(html)
+                    "<p>Guesses Left: " + guessesLeft + "</p>" +
+                    "<p>Your guesses so far: " + yourGuessesSoFar + "</p>";
 
                 document.querySelector("#guessgame").innerHTML = html;
-            
-        };
+            }
             
 
     </script>
