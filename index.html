@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang= "ens-us">
+<html lang="ens-us">
+
 <head>
     <meta charset="utf-8">
     <title>Psychic-Game</title>
@@ -19,78 +20,80 @@
 
     <script type="text/javascript">
 
-    // Compter Guesses
-    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        // Compter Guesses
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-   // These are the variables
+        // These are the variables
         var wins = 0;
         var losses = 0;
         var guessesleft = 9;
-        var yourguessessofar = [];       
-    
+        var yourguessessofar = [];
+
         // Listen to key upevent
-        document.onkeyup = function(event) {
-        var userGuess = event.key;
-        console.log (userGuess);
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            console.log(userGuess);
 
-        // Make a variable and store user guess
-        var userGuess = String.fromCharCode(event.keycode).toLowerCase();
-        console.log (userGuess);
+            // Make a variable and store user guess
+            var userGuess = String.fromCharCode(event.keycode).toLowerCase();
+            console.log(userGuess);
 
-        // The Computer guess
-        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
-        console.log (computerGuess);
 
-        // Compare userGuess and computerGuess
+
+            // The Computer guess
+            var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+            console.log(computerGuess);
+
+
+
+
+            // Compare userGuess and computerGuess
             if (userGuess === computerGuess) {
-                alert("You are correct")
-
                 // Increase wins by 1
                 wins++;
+                resetGame();
+                    alert("You are correct")
+                }
 
-        // Storing the letter guessed in the array
-                var yourguessessofar = [];
-            }
 
-            else {
-                // Increase losses by 1
-                losses++;
-        // Storing the letter guessed in the array
-            var yourguessessofar = [];
-            }
-
-            if (userGuess !== computerGuess) {
-            // Decrease to number of guessleft by 1
-            guessesleft--;
-        // Storing the letter guessed in the array
-        var yourguessessofar = [];
-            }
-           
-            if (guessesleft <= 0) {
-                alert("You did not win this game. Better luck next time!")
-            }
+                else {
+                    // Increase losses by 1
+                    losses++;
+                }
 
 
 
-        // Storing the letter guessed in the array
-        // MAKE THIS AN ARRAY
+                if (userGuess !== computerGuess) {
+                    // Decrease to number of guessleft by 1
+                    guessesleft--;
+                }
 
-        
-        yourguessessofar.push ();
-        reset.guessgame();
-    
 
-            var html = "<p>Guess what letter I'm thinking of?</p>" +
-            "<p>Wins: " + wins + "</p>" +
-            "<p>Losses: " + losses + "</p>" +
-            "<p>Guesses Left: " + guessesleft + "</p>" +
-            "<p>Your Guesses So Far: " + yourguessessofar + "</p>";
-            console.log(html)
 
-        document.querySelector("#guessgame").innerHTML = html;
-    }
+
+                if (guessesleft <= 0) {
+                    resetGame();
+                    alert("You did not win this game. Better luck next time!");
+                }
+
+
+
+
+
+
+
+                var html = "<p>Guess what letter I'm thinking of?</p>" +
+                    "<p>Wins: " + wins + "</p>" +
+                    "<p>Losses: " + losses + "</p>" +
+                    "<p>Guesses Left: " + guessesleft + "</p>" +
+                    "<p>Your Guesses So Far: " + yourguessessofar + "</p>";
+                console.log(html)
+
+                document.querySelector("#guessgame").innerHTML = html;
+        }
 
     </script>
 
 </body>
+
 </html>
