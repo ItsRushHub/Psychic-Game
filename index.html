@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body background="assets/images/psychiccc.jpg" alt="psychic girl">
 
     <div id="guessgame">
-        <p>Guess what letter I'm thinking of?</p>
+        <h1>Guess what letter I'm thinking of?</h1>
         <hr>
         <p>Wins:</p>
         <p>Losses:</p>
@@ -22,6 +22,7 @@
 
         // Compter Guesses 
         var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
 
         // These are the variables
         var wins = 0;
@@ -32,16 +33,18 @@
         // Listen to key upevent
         document.onkeyup = function (event) {
 
-            var userGuess = event.key;
-            console.log(userGuess);
+            var userGuess = event.key.toLowerCase();
+            console.log("Key pressed: " + userGuess);
 
             // Make a variable and store user guess
-            var userGuess = String.fromCharCode(event.keycode).toLowerCase();
-            console.log(userGuess);
+            //var userGuess = String.fromCharCode(event.key).toLowerCase();
+            console.log("user guess: "+userGuess);
+
+            yourGuessesSoFar.push(userGuess);
 
             // The Computer guess
             var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
-            console.log(computerGuess);
+            //console.log(computerGuess);
 
 
             // Compare userGuess and computerGuess
@@ -49,33 +52,42 @@
                 // Increase wins by 1
                 wins++;
                 alert("You are correct");
+                guessesLeft = 9;
+                yourGuessesSoFar = [];
                 resetGame(guessgame);
-                }
-
-                else {
-                    // Increase losses by 1
-                    losses++;
                 }
 
                 if (userGuess !== computerGuess) {
                     // Decrease to number of guessleft by 1
                     guessesLeft--;
-                }
+                };
 
                 if (guessesLeft <= 0) {
+                    resetGame(guessgame); 
+                    losses++;
                     alert("You did not win this game. Better luck next time!");
+                    guessesLeft = 9;
+                    yourGuessesSoFar = [];
                     resetGame(guessgame);
-                }
+                };
+                console.log(yourGuessesSoFar);
 
-                var html = "<p>Guess what letter I'm thinking of?</p>" +
+                var html = "<h1>Guess what letter I'm thinking of?</h1>" +
+                    "<hr>" +
                     "<p>Wins: " + wins + "</p>" +
                     "<p>Losses: " + losses + "</p>" +
                     "<p>Guesses Left: " + guessesLeft + "</p>" +
-                    "<p>Your guesses so far: " + yourGuessesSoFar + "</p>";
+                    "<p>Your guesses so far: " + yourGuessesSoFar.join() + "</p>";
 
                 document.querySelector("#guessgame").innerHTML = html;
             }
-            
+
+            function resetGame() {
+                var losses = 0;
+                var guessesLeft = 9;
+                var yourGuessesSoFar = [];
+            }
+
 
     </script>
 
