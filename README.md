@@ -6,3 +6,5 @@ In this game you have to guess what letter the computer is thing of. You have 9 
 HTML
 CSS
 Javascript
+
+https://itsrushhub.github.io/Psychic-Game/
